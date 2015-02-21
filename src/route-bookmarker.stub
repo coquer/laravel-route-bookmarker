@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Laravel Route Bookmarker</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		body {
+			color: #333;
+			background: #fff;
+			font-family: 'Lato', sans-serif;
+			font-size: 14px;
+		}
+
+		h1, h2, h3, h4, h5 {
+			font-weight: 300;
+		}
+
+		h1 {
+			font-size: 30;
+			text-align: center;
+			margin-bottom: 30px;
+			text-shadow: 0 0 12px rgba(0,0,0,0.4);
+		}
+
+		h2 {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin: 5px 0;
+		}
+
+		a {
+			color: #333;
+			text-decoration: underline;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		th, td {
+			text-align: left;
+		}
+
+		th, td {
+			border-bottom: 1px solid #ddd;
+			padding: 5px 0;
+		}
+
+		#wrapper {
+			width: 800px;
+			margin: 0 auto;
+		}
+
+		#author {
+			font-size: 12px;
+			font-weight: 300;
+			display: block;
+			text-align: center;
+			margin-bottom: 50px;
+		}
+
+		#author a {
+			text-decoration: none;
+		}
+
+		.open-routes-container {
+			display: block;
+			margin: 30px 0;
+			text-align: center;
+			font-style: italic;
+			font-size: 18px;
+			font-weight: 300;
+		}
+
+		.open-routes-container a {
+			text-decoration: none;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Laravel Route Bookmarker</h1>
+		<small id="author">By <a href="https://github.com/Herlevsen">Jens Herlevsen</a></small>
+		<div class="open-routes-container">
+			<a href="#">Click here to open all routes in separate tabs</a>
+		</div>
+		<h2>You have the following routes registered:</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Url</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{urls_table}}
+			</tbody>
+		</table>
+		<h2>How to:</h2>
+		<p>First make sure you only have this tab open in the current browser window. Then click the link below to open all the pages in separate tabs, and automatically close the current. Then your browser should have an option, in the menu, to add all open tabs as bookmarks. Click this, and your are done!</p>
+		<div class="open-routes-container">
+			<a href="#">Click here to open all routes in separate tabs</a>
+		</div>
+		<h2>Trouble?</h2>
+		<p>Just create an issue on <a href="#">Github</a>, and i'll look into it. Also feel free to make suggestions and send pull requests, if there's something you want to contribute.</p>
+	</div>
+	<script type="text/javascript">
+		(function($) {
+
+			function openUrls() {
+				var urls = [
+					{{urls}}
+				];
+
+				var urlsLength = urls.length;
+				for(var i = 0; i < urlsLength; i++) {
+					window.open(urls[i]);
+				}
+			};
+
+			var openRoutesLink = $('.open-routes-container a');
+
+			openRoutesLink.on('click', function() {
+				openUrls();
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
