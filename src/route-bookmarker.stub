@@ -104,7 +104,7 @@
 			</tbody>
 		</table>
 		<h2>How to:</h2>
-		<p>First make sure you only have this tab open in the current browser window. Then click the link below to open all the pages in separate tabs, and automatically close the current. Then your browser should have an option, in the menu, to add all open tabs as bookmarks. Click this, and your are done!</p>
+		<p>First make sure you only have this tab open in the current browser window. Then click the link below to open all the pages in separate tabs, and then close the current. Then your browser should have an option, in the menu, to add all open tabs as bookmarks. Click this, and your are done!</p>
 		<div class="open-routes-container">
 			<a href="#">Click here to open all routes in separate tabs</a>
 		</div>
